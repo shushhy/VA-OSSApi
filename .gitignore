@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+# ignore dirs
+/OSSApi/.vs/
+/OSSApi/OSSApi/bin/
+/OSSApi/OSSApi/obj/
