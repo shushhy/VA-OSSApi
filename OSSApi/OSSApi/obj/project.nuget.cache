@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dHMwHrnBH3eeHthlPLVhfCrPf0EWGDxLlywwjAXdAHvSBxi9az5j2+FCzmuuB5EKtox9zg3Fu65Nk0OIpC/GGg==",
+  "dgSpecHash": "lquBLet+7Anb81HlqrtbDn4o5B8fpWnxQtXtQv9t5F2LEt/6Vm2YudbbZ5EWtqP+neoBtUBJRMxfgJmio/ncNQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSSApi\\OSSApi.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.5.0\\microsoft.identitymodel.tokens.5.5.0.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.13\\microsoft.visualstudio.azure.containers.tools.targets.1.10.13.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.5\\microsoft.visualstudio.web.codegeneration.3.1.5.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.5\\microsoft.visualstudio.web.codegeneration.contracts.3.1.5.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.5\\microsoft.visualstudio.web.codegeneration.core.3.1.5.nupkg.sha512",
