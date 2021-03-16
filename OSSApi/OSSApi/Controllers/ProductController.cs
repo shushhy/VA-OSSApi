@@ -8,7 +8,7 @@ namespace OSSApi.Controllers {
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase {
-        private const string connectionString = "Data Source=ITSPT-2NRHTQ2;Initial Catalog=OnlineShoppingSystem;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private const string connectionString = "Data Source=ITSPT-6MRHTQ2;Initial Catalog=OnlineShoppingSystem;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         [HttpGet]
         public async Task<IActionResult> GetProduct(int id) {

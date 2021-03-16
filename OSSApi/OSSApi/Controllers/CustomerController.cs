@@ -10,7 +10,7 @@ namespace OSSApi.Controllers {
     [ApiController]
     public class CustomerController : ControllerBase {
 
-        private const string connectionString = "Data Source=ITSPT-2NRHTQ2;Initial Catalog=OnlineShoppingSystem;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private const string connectionString = "Data Source=ITSPT-6MRHTQ2;Initial Catalog=OnlineShoppingSystem;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         // get by id
         // TODO more search parameters
         [HttpGet]
