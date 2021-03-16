@@ -33,8 +33,8 @@ namespace OSSApi.Controllers {
 
             using (var connection = new SqlConnection(connectionString))
             {
-                var customers = await connection.QueryAsync<Orders>(sql, dynamicParameters);
-                return Ok(customers);
+                var orders = await connection.QueryAsync<Orders>(sql, dynamicParameters);
+                return Ok(orders);
             };
         }
 
