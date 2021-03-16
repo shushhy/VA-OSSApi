@@ -20,7 +20,7 @@ namespace OSSApi.Controllers {
                 dynamicParameters.Add("product_id", id);
             }
             using (var connection = new SqlConnection(connectionString)) {
-                var products = await connection.QueryAsync<Customer>(query, dynamicParameters);
+                var products = await connection.QueryAsync<Product>(query, dynamicParameters);
                 return Ok(products);
             };
         }
@@ -36,7 +36,7 @@ namespace OSSApi.Controllers {
                                   ,[product_color]
                                   ,[product_description])
                             VALUES
-                                  (@product_name,
+                                  (@product_name
                                   ,@product_price
                                   ,@product_size
                                   ,@product_color
@@ -62,11 +62,11 @@ namespace OSSApi.Controllers {
             }
 
             var query = @"UPDATE [dbo].[Product]
-                              SET [product_name]        = @product_name,
+                              SET [product_name]        = @product_name
                                  ,[product_price]       = @product_price
                                  ,[product_size]        = @product_size
                                  ,[product_color]       = @product_color
-                                 ,[product_description] = @product_description) 
+                                 ,[product_description] = @product_description
                             WHERE product_id = @product_id";
 
             using (var connection = new SqlConnection(connectionString)) {
@@ -76,7 +76,7 @@ namespace OSSApi.Controllers {
                     @product_price = product.product_price,
                     @product_size = product.product_size,
                     @product_color = product.product_color,
-                    product_description = product.product_description
+                    @product_description = product.product_description
                 });
                 return Ok();
             }
