@@ -43,6 +43,8 @@ namespace OSSApi.Controllers {
         [HttpPost]
         public async Task<IActionResult> InsertOrders(Orders orders)
         {
+            DateTime date = DateTime.UtcNow;
+
             var sql = @"INSERT INTO [dbo].[Orders]
                                 ([customer_id]
                                 ,[order_details]
@@ -57,7 +59,7 @@ namespace OSSApi.Controllers {
                     @customer_id = orders.customer_id,
                     @order_details = orders.order_details,
                     @order_status = orders.order_status,
-                    @order_date = orders.order_date
+                    @order_date = date
                 });
                 return Ok();
             }
@@ -76,7 +78,6 @@ namespace OSSApi.Controllers {
                               SET [customer_id] = @customer_id
                                  ,[order_details] = @order_details
                                  ,[order_status] = @order_status
-                                 ,[order_date] = @order_date
                             WHERE order_id=@order_id";
 
             using (var connection = new SqlConnection(connectionString))
@@ -87,7 +88,6 @@ namespace OSSApi.Controllers {
                     @customer_id = orders.customer_id, 
                     @order_details = orders.order_details,
                     @order_status = orders.order_status,
-                    @order_date = orders.order_date
                 });
                 return Ok();
             }
