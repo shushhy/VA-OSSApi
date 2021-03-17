@@ -16,23 +16,21 @@ namespace OSSApi.Controllers {
 
         // GET
         [HttpGet("")]
-        public async Task<IActionResult> GetOrders(int id)
-        {
+        public async Task<IActionResult> GetOrders(int id) {
             var sql = @"SELECT [order_id]
                               ,[customer_id]
                               ,[order_details]
                               ,[order_status]
+                              ,[order_date]
                           FROM [dbo].[Orders]";
 
             var dynamicParameters = new DynamicParameters();
-            if (id != 0)
-            {
+            if (id != 0) {
                 sql += " WHERE order_id = @order_id";
                 dynamicParameters.Add("order_id", id);
             }
 
-            using (var connection = new SqlConnection(connectionString))
-            {
+            using (var connection = new SqlConnection(connectionString)) {
                 var orders = await connection.QueryAsync<Orders>(sql, dynamicParameters);
                 return Ok(orders);
             };
@@ -40,21 +38,22 @@ namespace OSSApi.Controllers {
 
         // POST
         [HttpPost]
-        public async Task<IActionResult> InsertOrders(Orders orders)
-        {
+        public async Task<IActionResult> InsertOrders(Orders orders) {
+            DateTime date = DateTime.UtcNow;
+
             var sql = @"INSERT INTO [dbo].[Orders]
                                 ([customer_id]
                                 ,[order_details]
-                                ,[order_status])
-                            VALUES (@customer_id, @order_details, @order_status)";
+                                ,[order_status]
+                                ,[order_date])
+                            VALUES (@customer_id, @order_details, @order_status, @order_date)";
 
-            using (var connection = new SqlConnection(connectionString))
-            {
-                await connection.ExecuteAsync(sql, new
-                {
+            using (var connection = new SqlConnection(connectionString)) {
+                await connection.ExecuteAsync(sql, new {
                     @customer_id = orders.customer_id,
                     @order_details = orders.order_details,
-                    @order_status = orders.order_status
+                    @order_status = orders.order_status,
+                    @order_date = date
                 });
                 return Ok();
             }
@@ -62,10 +61,8 @@ namespace OSSApi.Controllers {
 
         // PUT
         [HttpPut]
-        public async Task<IActionResult> UpdateOrders(Orders orders)
-        {
-            if (!ModelState.IsValid)
-            {
+        public async Task<IActionResult> UpdateOrders(Orders orders) {
+            if (!ModelState.IsValid) {
                 return BadRequest("Not a valid order!");
             }
 
@@ -75,14 +72,12 @@ namespace OSSApi.Controllers {
                                  ,[order_status] = @order_status
                             WHERE order_id=@order_id";
 
-            using (var connection = new SqlConnection(connectionString))
-            {
-                await connection.ExecuteAsync(sql, new
-                {
+            using (var connection = new SqlConnection(connectionString)) {
+                await connection.ExecuteAsync(sql, new {
                     @order_id = orders.order_id,
                     @customer_id = orders.customer_id,
                     @order_details = orders.order_details,
-                    @order_status = orders.order_status
+                    @order_status = orders.order_status,
                 });
                 return Ok();
             }
@@ -90,17 +85,16 @@ namespace OSSApi.Controllers {
 
         // DELETE
         [HttpDelete]
-        public async Task<IActionResult> DeleteOrders(int id)
-        {
+        public async Task<IActionResult> DeleteOrders(int id) {
 
             var sql = @"DELETE FROM [dbo].[Orders]
                             WHERE order_id=@order_id";
 
-            using (var connection = new SqlConnection(connectionString))
-            {
+            using (var connection = new SqlConnection(connectionString)) {
                 await connection.ExecuteAsync(sql, new { order_id = id });
                 return Ok();
             }
         }
     }
 }
+
