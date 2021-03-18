@@ -30,14 +30,14 @@ namespace OSS.Services.Services {
                             FROM [dbo].[Customer]";
             var dynamicParameters = new DynamicParameters();
             if (id != 0) {
-                query += " WHERE customer_id = @customer_id";
-                dynamicParameters.Add("customer_id", id);
+                query += " WHERE customer_id = @CustomerId";
+                dynamicParameters.Add("CustomerId", id);
             }
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var customers = await connection.QueryFirstOrDefaultAsync<Customer>(query, dynamicParameters);
                 return customers;
             };
-        }
+        }   
 
         public Task<int> Insert(Customer entity) {
             throw new NotImplementedException();

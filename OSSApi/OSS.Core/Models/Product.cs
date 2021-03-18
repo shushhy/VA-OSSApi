@@ -2,11 +2,11 @@
 
 namespace OSS.Core.Models {
     public class Product {
-        public Int32 product_id { get; set; }
-        public string product_name { get; set; }
-        public decimal product_price { get; set; }
-        public string product_size { get; set; }
-        public string product_color { get; set; }
-        public string product_description { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
+        public decimal ProductPrice { get; set; }
+        public string ProductSize { get; set; }
+        public string ProductColor { get; set; }
+        public string ProductDescription { get; set; }
     }
 }

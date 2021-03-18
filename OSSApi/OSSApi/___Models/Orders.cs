@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace OSSApi.Models {
+namespace OSSApi.___Models {
     public class Orders {
         public Int64 order_id { get; set; }
         public Int32 customer_id { get; set; }

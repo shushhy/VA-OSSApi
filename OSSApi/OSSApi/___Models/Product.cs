@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OSSApi.Models {
+namespace OSSApi.___Models {
     public class Product {
         public Int32 product_id { get; set; }
         public string product_name { get; set; }

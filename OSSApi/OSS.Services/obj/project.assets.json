@@ -5829,19 +5829,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\a.conde.lwks\\.nuget\\packages\\": {}
+    "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
+      "projectUniqueName": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
       "projectName": "OSS.Services",
-      "projectPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
-      "packagesPath": "C:\\Users\\a.conde.lwks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\obj\\",
+      "projectPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
+      "packagesPath": "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\a.conde.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\f.fernandes.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5855,8 +5855,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj": {
-              "projectPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj"
+            "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj": {
+              "projectPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj"
             }
           }
         }

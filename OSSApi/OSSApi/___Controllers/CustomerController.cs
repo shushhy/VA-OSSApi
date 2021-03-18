@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OSSApi.Models;
+using OSSApi.___Models;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
 
-namespace OSSApi.Controllers {
-    [Route("api/[controller]")]
+namespace OSSApi.___Controllers {
+    [Route("api/old/[controller]")]
     [ApiController]
     public class CCustomerController : ControllerBase {
 

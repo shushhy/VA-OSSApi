@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {}
+    "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {
+    "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
+        "projectUniqueName": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
         "projectName": "OSS.Core",
-        "projectPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
-        "packagesPath": "C:\\Users\\a.conde.lwks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\obj\\",
+        "projectPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
+        "packagesPath": "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\a.conde.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\f.fernandes.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

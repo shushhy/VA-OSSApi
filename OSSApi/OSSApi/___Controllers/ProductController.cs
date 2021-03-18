@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OSSApi.Models;
+using OSSApi.___Models;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
-namespace OSSApi.Controllers {
-    [Route("api/[controller]")]
+namespace OSSApi.___Controllers {
+    [Route("api/old/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase {
         private const string connectionString = "Data Source=ITSPT-6MRHTQ2;Initial Catalog=OnlineShoppingSystem;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
