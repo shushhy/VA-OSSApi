@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {}
+    "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {
+    "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
+        "projectUniqueName": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
         "projectName": "OSS.Core",
-        "projectPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
+        "projectPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj",
         "packagesPath": "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\obj\\",
+        "outputPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\f.fernandes.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",

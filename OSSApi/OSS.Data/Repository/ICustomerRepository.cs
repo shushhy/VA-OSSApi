@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using OSS.Core.Models;
 
 namespace OSS.Data.Repository {
-    public interface ICustomerRepository : IGenericRepository<Customer> {
+    public interface ICustomerRepository : IGenericRepository<Customer>
+    {
+
     }
 }

@@ -5834,11 +5834,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
+      "projectUniqueName": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
       "projectName": "OSS.Services",
-      "projectPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
+      "projectPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\OSS.Services.csproj",
       "packagesPath": "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\obj\\",
+      "outputPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\f.fernandes.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5855,8 +5855,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj": {
-              "projectPath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj"
+            "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj": {
+              "projectPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj"
             }
           }
         }

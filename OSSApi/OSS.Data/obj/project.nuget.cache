@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/p8fow+ng8PMFQPb0jLWo3HFJPR9DGyBxCDvIaJr3XS/gR8/BRBWi2wfECfDeACJGW6i2rs3WtZ6lsG0f8i60w==",
+  "dgSpecHash": "Hnp2ucs0CGQf2NaGrjl5LLvQ4v8is0OR/aMtZm6kK6DxnMRE6VCJbgUH2SM3yR7l6ALYANzJ1UNlHmadtEDrcQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\f.fernandes.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj",
+  "projectFilePath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
     "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
