@@ -8,6 +8,7 @@ namespace OSS.Services.Services {
     public static class ServiceRegistration {
         public static void AddInfrastructure(this IServiceCollection services) {
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            //services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

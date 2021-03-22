@@ -37,7 +37,7 @@ namespace OSS.Services.Services {
                             FROM [dbo].[Customer]";
             var dynamicParameters = new DynamicParameters();
             if (id != 0) {
-                query += " WHERE customerId = @CustomerId";
+                query += " WHERE CustomerId = @CustomerId";
                 dynamicParameters.Add("CustomerId", id);
             }
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
