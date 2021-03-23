@@ -7,8 +7,15 @@ using OSS.Data.Repository;
 namespace OSS.Services.Services {
     public static class ServiceRegistration {
         public static void AddInfrastructure(this IServiceCollection services) {
+
+            // Customer
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            //services.AddScoped<IProductRepository, ProductRepository>();
+            // Product
+            services.AddScoped<IProductRepository, ProductRepository>();
+            // Order
+            services.AddScoped<IOrdersRepository, OrdersRepository>();
+            
+            // UnitOfWork
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

@@ -8,5 +8,11 @@ namespace OSS.Data.Repository {
 
         // Product
         IProductRepository Products { get; }
+
+        // Orders
+        IOrdersRepository Orders { get; }
+
+        // OrderDetails
+        //IOrderDetailsRepository OrderDetails { get; }
     }
 }

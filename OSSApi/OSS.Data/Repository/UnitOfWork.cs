@@ -5,17 +5,17 @@ using System.Text;
 namespace OSS.Data.Repository {
     public class UnitOfWork : IUnitOfWork {
 
-        // Customer
         public ICustomerRepository Customers { get; }
-        public UnitOfWork(ICustomerRepository customerRepository) {
-            Customers = customerRepository;
-        }
-
-        // Product
         public IProductRepository Products { get; }
-        public UnitOfWork(IProductRepository productRepository)
+        public IOrdersRepository Orders { get; }
+        //public IOrderDetailsRepository OrderDetails { get; }
+
+        public UnitOfWork(ICustomerRepository customerRepository, IProductRepository productRepository, IOrdersRepository orderRepository/*, IOrderDetailsRepository orderDetailsRepository*/)
         {
+            Customers = customerRepository;
             Products = productRepository;
+            Orders = orderRepository;
+            //OrderDetails = orderDetailsRepository;
         }
     }
 }
