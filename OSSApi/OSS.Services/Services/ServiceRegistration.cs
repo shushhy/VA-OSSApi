@@ -12,9 +12,11 @@ namespace OSS.Services.Services {
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             // Product
             services.AddScoped<IProductRepository, ProductRepository>();
-            // Order
+            // Orders
             services.AddScoped<IOrdersRepository, OrdersRepository>();
-            
+            // OrderDetails
+            services.AddScoped<IOrderDetailsRepository, OrderDetailsRepository>();
+
             // UnitOfWork
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }

@@ -22,10 +22,9 @@ namespace OSS.Services.Services {
         public async Task<IReadOnlyList<Orders>> GetAll() {
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             {
-
                 var orderAmount = new Dictionary<int, Orders>();
 
-                var query = await connection.QueryAsync<Orders, OrderDetails, Orders>(@"SELECT * FROM Orders o left join OrderDetails d on o.OrderId = d.OrderId",
+                var query = await connection.QueryAsync<Orders, OrderDetails, Orders>(@"SELECT * FROM Orders o inner join OrderDetails d on o.OrderId = d.OrderId",
                     (ordersFunc, orderDetailsFunc) => {
                         Orders ordersid;
 
@@ -41,8 +40,7 @@ namespace OSS.Services.Services {
 
                         return ordersid;
                 },splitOn: "OrderDetailsId");
-                
-                
+
                 return query.Distinct().ToList();
             };
         }
@@ -50,44 +48,39 @@ namespace OSS.Services.Services {
         // Select order by id
         public Task<Orders> GetById(int id) {
             throw new NotImplementedException();
-            /*var query = @"SELECT * FROM [dbo].[Orders]";
+            /*var query = @"SELECT * FROM Orders o inner join OrderDetails d on o.OrderId = d.OrderId ";
             var dynamicParameters = new DynamicParameters();
-            if (id != 0) {
+            if (id != 0)
+            {
                 query += " WHERE OrderId = @OrderId";
                 dynamicParameters.Add("OrderId", id);
             }
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
                 var orders = await connection.QueryFirstOrDefaultAsync<Orders>(query, dynamicParameters);
                 return orders;
             };*/
         }
 
         // Insert new order
-        public Task<int> Insert(Orders entity)
+        public async Task<int> Insert(Orders entity)
         {
-            throw new NotImplementedException();
-            /*var query = @"INSERT INTO [dbo].[Customer](
-                            FirstName
-                           ,LastName
-                           ,Email
-                           ,Password
-                           ,Gender
-                           ,Country
-                           ,PhoneNumber)
-                          VALUES
-                            (@FirstName
-                           ,@LastName
-                           ,@Email
-                           ,@Password
-                           ,@Gender
-                           ,@Country
-                           ,@PhoneNumber);";
+            var query = @"INSERT INTO [dbo].[Orders](CustomerId, OrderDescription, OrderStatus, OrderDate)
+                          VALUES (@CustomerId, @OrderDescription, @OrderStatus, @OrderDate);";
 
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             {
-                var affectedRows = await connection.ExecuteAsync(query, entity);
+                var newOrder = new Orders
+                {
+                    CustomerId = entity.CustomerId,
+                    OrderDescription = entity.OrderDescription,
+                    OrderStatus = entity.OrderStatus,
+                    OrderDate = DateTime.UtcNow
+                };
+
+                var affectedRows = await connection.ExecuteAsync(query, newOrder);
                 return affectedRows;
-            }*/
+            }
         }
 
         // Edit order

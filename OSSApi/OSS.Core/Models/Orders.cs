@@ -10,7 +10,9 @@ namespace OSS.Core.Models {
         public int CustomerId { get; set; }
         public string OrderDescription { get; set; }
         public char OrderStatus { get; set; }
+        public DateTime OrderDate { get; set; }
 
+        //public OrderDetails OrderDetails { get; set; }
         public List<OrderDetails> OrderDetails { get; set; }
     }
 }

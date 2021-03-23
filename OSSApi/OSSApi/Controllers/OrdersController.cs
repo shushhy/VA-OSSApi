@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OSS.Data.Repository;
+using OSS.Core.Models;
 
 namespace OSSApi.Controllers {
     [Route("api/[controller]")]
@@ -16,7 +17,7 @@ namespace OSSApi.Controllers {
             this.unitOfWork = unitOfWork;
         }
 
-        // GetAll Product
+        // GetAll Order
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -24,7 +25,7 @@ namespace OSSApi.Controllers {
             return Ok(data);
         }
 
-        // GetById Product
+        // GetById Order
         /*[HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -34,14 +35,15 @@ namespace OSSApi.Controllers {
                 return BadRequest();
             }
             return Ok(data);
-        }
+        }*/
 
-        // Post Product
+        // Post Order
         [HttpPost]
         public async Task<IActionResult> Insert(Orders entity)
         {
             var data = await unitOfWork.Orders.Insert(entity);
             return Ok(data);
-        }*/
+        }
+
     }
 }

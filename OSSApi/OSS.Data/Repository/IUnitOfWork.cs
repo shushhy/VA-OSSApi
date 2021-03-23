@@ -13,6 +13,6 @@ namespace OSS.Data.Repository {
         IOrdersRepository Orders { get; }
 
         // OrderDetails
-        //IOrderDetailsRepository OrderDetails { get; }
+        IOrderDetailsRepository OrderDetails { get; }
     }
 }
