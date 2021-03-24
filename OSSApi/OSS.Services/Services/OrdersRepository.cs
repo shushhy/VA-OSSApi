@@ -7,6 +7,7 @@ using OSS.Data.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
+using Dapper.Contrib.Extensions;
 using System.Linq;
 
 namespace OSS.Services.Services {
@@ -61,15 +62,15 @@ namespace OSS.Services.Services {
         }
 
         // Insert new order
-        public async Task Insert(Orders entity) {
+        public async Task Insert(Orders orders) {
             var query = @"INSERT INTO [dbo].[Orders](CustomerId, OrderDescription, OrderStatus, OrderDate)
                           VALUES (@CustomerId, @OrderDescription, @OrderStatus, @OrderDate);";
 
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var newOrder = new Orders {
-                    CustomerId = entity.CustomerId,
-                    OrderDescription = entity.OrderDescription,
-                    OrderStatus = entity.OrderStatus,
+                    CustomerId = orders.CustomerId,
+                    OrderDescription = orders.OrderDescription,
+                    OrderStatus = orders.OrderStatus,
                     OrderDate = DateTime.UtcNow
                 };
 
@@ -78,7 +79,7 @@ namespace OSS.Services.Services {
         }
 
         // Edit order
-        public Task Update(Orders entity) {
+        public Task Update(Orders orders) {
             throw new NotImplementedException();
         }
 

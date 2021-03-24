@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper.Contrib.Extensions;
 
 
 namespace OSS.Core.Models {
+    [Table("Orders")]
+
     public class Orders {
+        [Key]
         public int OrderId { get; set; }
         public int CustomerId { get; set; }
         public string OrderDescription { get; set; }

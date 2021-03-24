@@ -18,8 +18,8 @@ namespace OSSApi.Controllers {
 
         // Post OrderDetails
         [HttpPost]
-        public async Task<IActionResult> Insert(OrderDetails entity) {
-            await unitOfWork.OrderDetails.Insert(entity);
+        public async Task<IActionResult> Insert(OrderDetails orderDetails) {
+            await unitOfWork.OrderDetails.Insert(orderDetails);
             return Ok();
         }
     }

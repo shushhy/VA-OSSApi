@@ -35,15 +35,15 @@ namespace OSSApi.Controllers {
 
         // Post Product
         [HttpPost]
-        public async Task<IActionResult> Insert(Product entity) {
-            await unitOfWork.Products.Insert(entity);
+        public async Task<IActionResult> Insert(Product product) {
+            await unitOfWork.Products.Insert(product);
             return Ok();
         }
 
         // Put Product
         [HttpPut]
-        public async Task<IActionResult> Update(Product entity) {
-            await unitOfWork.Products.Update(entity);
+        public async Task<IActionResult> Update(Product product) {
+            await unitOfWork.Products.Update(product);
             return Ok();
         }
 

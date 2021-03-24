@@ -16,6 +16,7 @@ namespace OSS.Services.Services {
             this.configuration = configuration;
         }
 
+        // Select all customer
         public async Task<IReadOnlyList<Customer>> GetAll() {
 
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
@@ -24,6 +25,7 @@ namespace OSS.Services.Services {
             };
         }
 
+        // Select customer by id
         public async Task<Customer> GetById(int id) {
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 int CustomerId = id;
@@ -32,6 +34,7 @@ namespace OSS.Services.Services {
             }
         }
 
+        // Insert new customer
         public async Task Insert(Customer customer) {
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var newCustomer = new Customer {
@@ -47,6 +50,7 @@ namespace OSS.Services.Services {
             }
         }
 
+        // Edit customer
         public async Task Update(Customer customer) {
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var updateCustomer = new Customer {
@@ -59,10 +63,11 @@ namespace OSS.Services.Services {
                     Country = customer.Country,
                     PhoneNumber = customer.PhoneNumber
                 };
-                await connection.InsertAsync<Customer>(updateCustomer);
+                await connection.UpdateAsync<Customer>(updateCustomer);
             }
         }
 
+        // Delete customer by id
         public async Task Delete(int id) {
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 await connection.DeleteAsync(new Customer { CustomerId = id });

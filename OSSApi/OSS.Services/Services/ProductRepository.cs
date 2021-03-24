@@ -7,7 +7,8 @@ using OSS.Data.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
-
+using Dapper.Contrib.Extensions;
+using System.Linq;
 
 namespace OSS.Services.Services {
     public class ProductRepository : IProductRepository {
@@ -19,73 +20,66 @@ namespace OSS.Services.Services {
 
 
         // Select all products
-        public async Task<IReadOnlyList<Product>> GetAll() {
-            var query = @"SELECT *
-                            FROM [dbo].[Product]";
-            var dynamicParameters = new DynamicParameters();
-
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
-                var products = await connection.QueryAsync<Product>(query);
-                return (IReadOnlyList<Product>)products;
+        public async Task<IReadOnlyList<Product>> GetAll()
+        {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
+                var products = await connection.GetAllAsync<Product>();
+                return products.ToList();
             };
         }
 
         // Select product by id
-        public async Task<Product> GetById(int id) {
-            var query = @"SELECT *
-                            FROM [dbo].[Product]";
-            var dynamicParameters = new DynamicParameters();
-            if (id != 0) {
-                query += " WHERE ProductId = @ProductId";
-                dynamicParameters.Add("ProductId", id);
+        public async Task<Product> GetById(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
+                int ProductId = id;
+                var product = await connection.GetAsync<Product>(ProductId);
+                return product;
             }
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
-                var products = await connection.QueryFirstOrDefaultAsync<Product>(query, dynamicParameters);
-                return products;
-            };
         }
 
         // Insert new product
-        public async Task Insert(Product entity) {
-            var query = @"INSERT INTO [dbo].[Product](
-                            ProductName
-                           ,ProductPrice
-                           ,ProductSize
-                           ,ProductColor
-                           ,ProductDescription)
-                          VALUES
-                            (@ProductName
-                           ,@ProductPrice
-                           ,@ProductSize
-                           ,@ProductColor
-                           ,@ProductDescription);";
-
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
-                var affectedRows = await connection.ExecuteAsync(query, entity);
+        public async Task Insert(Product product)
+        {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
+                var newProduct = new Product
+                {
+                    ProductName = product.ProductName,
+                    ProductPrice = product.ProductPrice,
+                    ProductSize = product.ProductSize,
+                    ProductColor = product.ProductColor,
+                    ProductDescription = product.ProductDescription
+                };
+                await connection.InsertAsync<Product>(newProduct);
             }
         }
 
         // Edit product
-        public async Task Update(Product entity) {
-            var query = @"UPDATE [dbo].[Product] SET
-                            ProductName = @ProductName
-                           ,ProductPrice = @ProductPrice
-                           ,ProductSize = @ProductSize
-                           ,ProductColor = @ProductColor
-                           ,ProductDescription = @ProductDescription
-                          WHERE ProductId = @ProductId;";
-
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
-                var affectedRows = await connection.ExecuteAsync(query, entity);
+        public async Task Update(Product product)
+        {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
+                var updateProduct = new Product
+                {
+                    ProductName = product.ProductName,
+                    ProductPrice = product.ProductPrice,
+                    ProductSize = product.ProductSize,
+                    ProductColor = product.ProductColor,
+                    ProductDescription = product.ProductDescription
+                };
+                await connection.UpdateAsync<Product>(updateProduct);
             }
         }
 
         // Delete product by id
-        public async Task Delete(int id) {
-            var query = @"DELETE FROM [dbo].[Product] WHERE ProductId=@ProductId;";
-
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
-                var affectedRows = await connection.ExecuteAsync(query, new { ProductId = id });
+        public async Task Delete(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+            {
+                await connection.DeleteAsync(new Product { ProductId = id });
             }
         }
 

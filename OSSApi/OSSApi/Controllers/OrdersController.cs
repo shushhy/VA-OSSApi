@@ -24,7 +24,7 @@ namespace OSSApi.Controllers {
         }
 
         // GetById Order
-        /*[HttpGet("{id}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
             var data = await unitOfWork.Orders.GetById(id);
@@ -33,12 +33,12 @@ namespace OSSApi.Controllers {
                 return BadRequest();
             }
             return Ok(data);
-        }*/
+        }
 
         // Post Order
         [HttpPost]
-        public async Task<IActionResult> Insert(Orders entity) {
-            await unitOfWork.Orders.Insert(entity);
+        public async Task<IActionResult> Insert(Orders orders) {
+            await unitOfWork.Orders.Insert(orders);
             return Ok();
         }
 

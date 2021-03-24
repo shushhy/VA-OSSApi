@@ -82,3 +82,433 @@
 2021-03-24 05:09:17.056 +00:00 [INF] HTTP GET /api/customer responded 200 in 633.6890 ms
 2021-03-24 05:09:17.064 +00:00 [INF] Request finished in 643.6448ms 200 application/json; charset=utf-8
 2021-03-24 05:09:21.747 +00:00 [INF] Application is shutting down...
+2021-03-24 10:11:46.401 +00:00 [INF] Starting the application
+2021-03-24 10:11:48.310 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 10:11:48.317 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 10:11:48.319 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 10:11:48.319 +00:00 [INF] Hosting environment: Development
+2021-03-24 10:11:48.320 +00:00 [INF] Content root path: C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 10:11:50.926 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 10:11:50.989 +00:00 [INF] HTTP GET / responded 404 in 46.4834 ms
+2021-03-24 10:11:51.010 +00:00 [INF] Request finished in 94.0276ms 404 
+2021-03-24 10:11:56.401 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 10:11:56.425 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:11:56.506 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:12:23.523 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product  
+2021-03-24 10:12:23.529 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 10:12:23.537 +00:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 10:12:43.223 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 46710.3073ms
+2021-03-24 10:12:43.223 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.GetAll (OSSApi) in 19679.1041ms
+2021-03-24 10:12:43.229 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:12:43.230 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 10:12:43.233 +00:00 [ERR] HTTP GET /api/customer responded 500 in 46830.2020 ms
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (1396): The target account name is incorrect.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at OSS.Services.Services.CustomerRepository.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSS.Services\Services\CustomerRepository.cs:line 22
+   at OSSApi.Controllers.CustomerController.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi\Controllers\CustomerController.cs:line 22
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:1396,State:0,Class:20
+2021-03-24 10:12:43.233 +00:00 [ERR] HTTP GET /api/product responded 500 in 19707.0096 ms
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (1396): The target account name is incorrect.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at OSS.Services.Services.ProductRepository.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSS.Services\Services\ProductRepository.cs:line 28
+   at OSSApi.Controllers.ProductController.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi\Controllers\ProductController.cs:line 22
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:1396,State:0,Class:20
+2021-03-24 10:12:43.408 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (1396): The target account name is incorrect.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at OSS.Services.Services.CustomerRepository.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSS.Services\Services\CustomerRepository.cs:line 22
+   at OSSApi.Controllers.CustomerController.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi\Controllers\CustomerController.cs:line 22
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:1396,State:0,Class:20
+2021-03-24 10:12:43.467 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (1396): The target account name is incorrect.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryAsync[T](IDbConnection cnn, Type effectiveType, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 418
+   at OSS.Services.Services.ProductRepository.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSS.Services\Services\ProductRepository.cs:line 28
+   at OSSApi.Controllers.ProductController.GetAll() in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi\Controllers\ProductController.cs:line 22
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:1396,State:0,Class:20
+2021-03-24 10:12:43.580 +00:00 [INF] Request finished in 47179.7654ms 500 text/plain
+2021-03-24 10:12:43.617 +00:00 [INF] Request finished in 20094.7674ms 500 text/plain
+2021-03-24 10:13:11.891 +00:00 [INF] Starting the application
+2021-03-24 10:13:17.443 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 10:13:17.451 +00:00 [INF] Hosting environment: Development
+2021-03-24 10:13:17.454 +00:00 [INF] Content root path: C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 10:13:17.523 +00:00 [INF] Request starting HTTP/2.0 GET https://localhost:44373/  
+2021-03-24 10:13:17.668 +00:00 [INF] HTTP GET / responded 404 in 111.6218 ms
+2021-03-24 10:13:17.730 +00:00 [INF] Request finished in 215.4933ms 404 
+2021-03-24 10:13:19.730 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:44373/api/customer/10  
+2021-03-24 10:13:19.748 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetById (OSSApi)'
+2021-03-24 10:13:19.815 +00:00 [INF] Route matched with {action = "GetById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:16:13.962 +00:00 [INF] Starting the application
+2021-03-24 10:16:16.114 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 10:16:16.117 +00:00 [INF] Hosting environment: Development
+2021-03-24 10:16:16.119 +00:00 [INF] Content root path: C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 10:16:16.141 +00:00 [INF] Request starting HTTP/2.0 GET https://localhost:44373/  
+2021-03-24 10:16:16.205 +00:00 [INF] HTTP GET / responded 404 in 48.3271 ms
+2021-03-24 10:16:16.249 +00:00 [INF] Request finished in 113.5037ms 404 
+2021-03-24 10:16:24.957 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:44373/api/customer/10  
+2021-03-24 10:16:24.975 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetById (OSSApi)'
+2021-03-24 10:16:25.056 +00:00 [INF] Route matched with {action = "GetById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:16:26.327 +00:00 [INF] Executing ObjectResult, writing value of type 'OSS.Core.Models.Customer'.
+2021-03-24 10:16:26.401 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetById (OSSApi) in 1338.3004ms
+2021-03-24 10:16:26.402 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetById (OSSApi)'
+2021-03-24 10:16:26.403 +00:00 [INF] HTTP GET /api/customer/10 responded 200 in 1445.3798 ms
+2021-03-24 10:16:26.407 +00:00 [INF] Request finished in 1449.4227ms 200 application/json; charset=utf-8
+2021-03-24 10:17:05.597 +00:00 [INF] Starting the application
+2021-03-24 10:17:07.066 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 10:17:07.075 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 10:17:07.076 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 10:17:07.079 +00:00 [INF] Hosting environment: Development
+2021-03-24 10:17:07.082 +00:00 [INF] Content root path: C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 10:17:08.987 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 10:17:09.038 +00:00 [INF] HTTP GET / responded 404 in 41.5628 ms
+2021-03-24 10:17:09.057 +00:00 [INF] Request finished in 78.7919ms 404 
+2021-03-24 10:17:12.587 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 10:17:12.607 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:17:12.665 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:17:13.266 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:17:13.303 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 626.0166ms
+2021-03-24 10:17:13.306 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:17:13.308 +00:00 [INF] HTTP GET /api/customer responded 200 in 719.0642 ms
+2021-03-24 10:17:13.316 +00:00 [INF] Request finished in 728.857ms 200 application/json; charset=utf-8
+2021-03-24 10:29:38.339 +00:00 [INF] Starting the application
+2021-03-24 10:29:39.709 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 10:29:39.718 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 10:29:39.720 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 10:29:39.721 +00:00 [INF] Hosting environment: Development
+2021-03-24 10:29:39.722 +00:00 [INF] Content root path: C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 10:29:41.926 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 10:29:41.994 +00:00 [INF] HTTP GET / responded 404 in 54.8089 ms
+2021-03-24 10:29:42.002 +00:00 [INF] Request finished in 82.3346ms 404 
+2021-03-24 10:29:53.773 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/orders  
+2021-03-24 10:29:53.785 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.OrdersController.GetAll (OSSApi)'
+2021-03-24 10:29:53.835 +00:00 [INF] Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.OrdersController (OSSApi).
+2021-03-24 10:29:54.273 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Orders, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:29:54.315 +00:00 [INF] Executed action OSSApi.Controllers.OrdersController.GetAll (OSSApi) in 472.0308ms
+2021-03-24 10:29:54.319 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.OrdersController.GetAll (OSSApi)'
+2021-03-24 10:29:54.323 +00:00 [INF] HTTP GET /api/orders responded 200 in 547.9545 ms
+2021-03-24 10:29:54.329 +00:00 [INF] Request finished in 556.6964ms 200 application/json; charset=utf-8
+2021-03-24 10:53:46.857 +00:00 [INF] Starting the application
+2021-03-24 10:53:48.355 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 10:53:48.385 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 10:53:48.387 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 10:53:48.388 +00:00 [INF] Hosting environment: Development
+2021-03-24 10:53:48.410 +00:00 [INF] Content root path: C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 10:53:50.252 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 10:53:50.330 +00:00 [INF] HTTP GET / responded 404 in 59.3928 ms
+2021-03-24 10:53:50.365 +00:00 [INF] Request finished in 112.4171ms 404 
+2021-03-24 10:54:42.163 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 10:54:42.179 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:54:42.237 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:54:42.782 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:54:42.815 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 568.6901ms
+2021-03-24 10:54:42.819 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:54:42.822 +00:00 [INF] HTTP GET /api/customer responded 200 in 656.4993 ms
+2021-03-24 10:54:42.830 +00:00 [INF] Request finished in 666.3956ms 200 application/json; charset=utf-8
+2021-03-24 10:54:49.350 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer/10  
+2021-03-24 10:54:49.353 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetById (OSSApi)'
+2021-03-24 10:54:49.366 +00:00 [INF] Route matched with {action = "GetById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:54:49.454 +00:00 [INF] Executing ObjectResult, writing value of type 'OSS.Core.Models.Customer'.
+2021-03-24 10:54:49.458 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetById (OSSApi) in 90.4062ms
+2021-03-24 10:54:49.461 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetById (OSSApi)'
+2021-03-24 10:54:49.463 +00:00 [INF] HTTP GET /api/customer/10 responded 200 in 111.2982 ms
+2021-03-24 10:54:49.467 +00:00 [INF] Request finished in 116.8309ms 200 application/json; charset=utf-8
+2021-03-24 10:54:59.884 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/customer application/json 220
+2021-03-24 10:54:59.886 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.Insert (OSSApi)'
+2021-03-24 10:54:59.895 +00:00 [INF] Route matched with {action = "Insert", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Insert(OSS.Core.Models.Customer) on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:55:00.003 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 10:55:00.007 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.Insert (OSSApi) in 106.2687ms
+2021-03-24 10:55:00.010 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.Insert (OSSApi)'
+2021-03-24 10:55:00.016 +00:00 [INF] HTTP POST /api/customer responded 200 in 129.9141 ms
+2021-03-24 10:55:00.019 +00:00 [INF] Request finished in 135.1448ms 200 
+2021-03-24 10:55:02.610 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 10:55:02.613 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:55:02.614 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:55:02.622 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:55:02.627 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 8.99ms
+2021-03-24 10:55:02.632 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:55:02.636 +00:00 [INF] HTTP GET /api/customer responded 200 in 23.3643 ms
+2021-03-24 10:55:02.641 +00:00 [INF] Request finished in 31.5058ms 200 application/json; charset=utf-8
+2021-03-24 10:55:22.814 +00:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/customer application/json 239
+2021-03-24 10:55:22.817 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.Update (OSSApi)'
+2021-03-24 10:55:22.841 +00:00 [INF] Route matched with {action = "Update", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(OSS.Core.Models.Customer) on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:55:22.892 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 10:55:22.895 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.Update (OSSApi) in 45.8834ms
+2021-03-24 10:55:22.898 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.Update (OSSApi)'
+2021-03-24 10:55:22.900 +00:00 [INF] HTTP PUT /api/customer responded 200 in 83.3698 ms
+2021-03-24 10:55:22.902 +00:00 [INF] Request finished in 88.2227ms 200 
+2021-03-24 10:55:25.923 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 10:55:25.926 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:55:25.929 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:55:25.948 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:55:25.951 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 12.9667ms
+2021-03-24 10:55:25.957 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:55:25.960 +00:00 [INF] HTTP GET /api/customer responded 200 in 33.6703 ms
+2021-03-24 10:55:25.964 +00:00 [INF] Request finished in 40.738ms 200 application/json; charset=utf-8
+2021-03-24 10:56:33.858 +00:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:5001/api/customer/11  
+2021-03-24 10:56:33.860 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.Delete (OSSApi)'
+2021-03-24 10:56:33.866 +00:00 [INF] Route matched with {action = "Delete", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:56:33.893 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 10:56:33.895 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.Delete (OSSApi) in 22.6675ms
+2021-03-24 10:56:33.897 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.Delete (OSSApi)'
+2021-03-24 10:56:33.899 +00:00 [INF] HTTP DELETE /api/customer/11 responded 200 in 39.1252 ms
+2021-03-24 10:56:33.903 +00:00 [INF] Request finished in 45.0202ms 200 
+2021-03-24 10:56:37.036 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 10:56:37.042 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:56:37.051 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 10:56:37.100 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:56:37.103 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 13.4693ms
+2021-03-24 10:56:37.115 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 10:56:37.126 +00:00 [INF] HTTP GET /api/customer responded 200 in 85.4677 ms
+2021-03-24 10:56:37.148 +00:00 [INF] Request finished in 112.7115ms 200 application/json; charset=utf-8
+2021-03-24 10:56:51.646 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/orders  
+2021-03-24 10:56:51.649 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.OrdersController.GetAll (OSSApi)'
+2021-03-24 10:56:51.657 +00:00 [INF] Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.OrdersController (OSSApi).
+2021-03-24 10:56:51.699 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Orders, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:56:51.709 +00:00 [INF] Executed action OSSApi.Controllers.OrdersController.GetAll (OSSApi) in 40.27ms
+2021-03-24 10:56:51.712 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.OrdersController.GetAll (OSSApi)'
+2021-03-24 10:56:51.715 +00:00 [INF] HTTP GET /api/orders responded 200 in 65.3381 ms
+2021-03-24 10:56:51.718 +00:00 [INF] Request finished in 72.1852ms 200 application/json; charset=utf-8
+2021-03-24 10:57:30.413 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/orders application/json 109
+2021-03-24 10:57:30.421 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.OrdersController.Insert (OSSApi)'
+2021-03-24 10:57:30.435 +00:00 [INF] Route matched with {action = "Insert", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Insert(OSS.Core.Models.Orders) on controller OSSApi.Controllers.OrdersController (OSSApi).
+2021-03-24 10:57:30.480 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 10:57:30.481 +00:00 [INF] Executed action OSSApi.Controllers.OrdersController.Insert (OSSApi) in 34.8398ms
+2021-03-24 10:57:30.483 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.OrdersController.Insert (OSSApi)'
+2021-03-24 10:57:30.485 +00:00 [INF] HTTP POST /api/orders responded 200 in 64.2621 ms
+2021-03-24 10:57:30.488 +00:00 [INF] Request finished in 75.5791ms 200 
+2021-03-24 10:57:50.951 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/orderdetails application/json 109
+2021-03-24 10:57:50.953 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.OrderDetailsController.Insert (OSSApi)'
+2021-03-24 10:57:50.962 +00:00 [INF] Route matched with {action = "Insert", controller = "OrderDetails"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Insert(OSS.Core.Models.OrderDetails) on controller OSSApi.Controllers.OrderDetailsController (OSSApi).
+2021-03-24 10:57:51.016 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 10:57:51.018 +00:00 [INF] Executed action OSSApi.Controllers.OrderDetailsController.Insert (OSSApi) in 53.0016ms
+2021-03-24 10:57:51.020 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.OrderDetailsController.Insert (OSSApi)'
+2021-03-24 10:57:51.022 +00:00 [INF] HTTP POST /api/orderdetails responded 200 in 68.6947 ms
+2021-03-24 10:57:51.028 +00:00 [INF] Request finished in 77.036ms 200 
+2021-03-24 10:57:53.403 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/orders  
+2021-03-24 10:57:53.406 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.OrdersController.GetAll (OSSApi)'
+2021-03-24 10:57:53.408 +00:00 [INF] Route matched with {action = "GetAll", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.OrdersController (OSSApi).
+2021-03-24 10:57:53.419 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Orders, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:57:53.424 +00:00 [INF] Executed action OSSApi.Controllers.OrdersController.GetAll (OSSApi) in 11.4587ms
+2021-03-24 10:57:53.428 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.OrdersController.GetAll (OSSApi)'
+2021-03-24 10:57:53.430 +00:00 [INF] HTTP GET /api/orders responded 200 in 24.7103 ms
+2021-03-24 10:57:53.434 +00:00 [INF] Request finished in 30.5809ms 200 application/json; charset=utf-8
+2021-03-24 10:58:50.069 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product  
+2021-03-24 10:58:50.071 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 10:58:50.078 +00:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 10:58:50.096 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Product, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 10:58:50.101 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.GetAll (OSSApi) in 17.4816ms
+2021-03-24 10:58:50.104 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 10:58:50.106 +00:00 [INF] HTTP GET /api/product responded 200 in 34.3928 ms
+2021-03-24 10:58:50.109 +00:00 [INF] Request finished in 40.072ms 200 application/json; charset=utf-8
+2021-03-24 10:58:55.064 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product/10  
+2021-03-24 10:58:55.066 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.GetById (OSSApi)'
+2021-03-24 10:58:55.074 +00:00 [INF] Route matched with {action = "GetById", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 10:58:55.088 +00:00 [INF] Executing ObjectResult, writing value of type 'OSS.Core.Models.Product'.
+2021-03-24 10:58:55.091 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.GetById (OSSApi) in 10.7582ms
+2021-03-24 10:58:55.098 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.GetById (OSSApi)'
+2021-03-24 10:58:55.099 +00:00 [INF] HTTP GET /api/product/10 responded 200 in 33.5100 ms
+2021-03-24 10:58:55.102 +00:00 [INF] Request finished in 37.6217ms 200 application/json; charset=utf-8
+2021-03-24 10:59:16.396 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/product application/json 199
+2021-03-24 10:59:16.397 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.Insert (OSSApi)'
+2021-03-24 10:59:16.402 +00:00 [INF] Route matched with {action = "Insert", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Insert(OSS.Core.Models.Product) on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 10:59:16.550 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.Insert (OSSApi) in 144.8557ms
+2021-03-24 10:59:16.552 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.Insert (OSSApi)'
+2021-03-24 10:59:16.553 +00:00 [ERR] HTTP POST /api/product responded 500 in 155.9200 ms
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'ProductDescription', table 'OnlineShoppingSystem.dbo.Product'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryMultipleAsync(IDbConnection cnn, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 1013
+   at SqlServerAdapter.InsertAsync(IDbConnection connection, IDbTransaction transaction, Nullable`1 commandTimeout, String tableName, String columnList, String parameterList, IEnumerable`1 keyProperties, Object entityToInsert) in /_/Dapper.Contrib/SqlMapperExtensions.Async.cs:line 380
+   at OSS.Services.Services.ProductRepository.Insert(Product product) in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSS.Services\Services\ProductRepository.cs:line 56
+   at OSSApi.Controllers.ProductController.Insert(Product product) in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi\Controllers\ProductController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+ClientConnectionId:23519b45-6ae1-4014-ba18-6e051c45e6f7
+Error Number:515,State:2,Class:16
+2021-03-24 10:59:16.672 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'ProductDescription', table 'OnlineShoppingSystem.dbo.Product'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__164_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Dapper.SqlMapper.QueryMultipleAsync(IDbConnection cnn, CommandDefinition command) in /_/Dapper/SqlMapper.Async.cs:line 1013
+   at SqlServerAdapter.InsertAsync(IDbConnection connection, IDbTransaction transaction, Nullable`1 commandTimeout, String tableName, String columnList, String parameterList, IEnumerable`1 keyProperties, Object entityToInsert) in /_/Dapper.Contrib/SqlMapperExtensions.Async.cs:line 380
+   at OSS.Services.Services.ProductRepository.Insert(Product product) in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSS.Services\Services\ProductRepository.cs:line 56
+   at OSSApi.Controllers.ProductController.Insert(Product product) in C:\Users\f.fernandes.lwks\Source\Repos\shushhy\VA-OSSApi\OSSApi\OSSApi\Controllers\ProductController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:23519b45-6ae1-4014-ba18-6e051c45e6f7
+Error Number:515,State:2,Class:16
+2021-03-24 10:59:16.706 +00:00 [INF] Request finished in 310.1557ms 500 text/plain
+2021-03-24 11:00:36.688 +00:00 [INF] Request starting HTTP/1.1 POST https://localhost:5001/api/product application/json 194
+2021-03-24 11:00:36.689 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.Insert (OSSApi)'
+2021-03-24 11:00:36.692 +00:00 [INF] Route matched with {action = "Insert", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Insert(OSS.Core.Models.Product) on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 11:00:36.703 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 11:00:36.704 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.Insert (OSSApi) in 9.1825ms
+2021-03-24 11:00:36.706 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.Insert (OSSApi)'
+2021-03-24 11:00:36.708 +00:00 [INF] HTTP POST /api/product responded 200 in 18.9088 ms
+2021-03-24 11:00:36.711 +00:00 [INF] Request finished in 22.8653ms 200 
+2021-03-24 11:00:50.203 +00:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/product application/json 197
+2021-03-24 11:00:50.205 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.Update (OSSApi)'
+2021-03-24 11:00:50.215 +00:00 [INF] Route matched with {action = "Update", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(OSS.Core.Models.Product) on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 11:00:50.231 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 11:00:50.233 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.Update (OSSApi) in 13.9998ms
+2021-03-24 11:00:50.235 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.Update (OSSApi)'
+2021-03-24 11:00:50.236 +00:00 [INF] HTTP PUT /api/product responded 200 in 31.3460 ms
+2021-03-24 11:00:50.238 +00:00 [INF] Request finished in 35.2262ms 200 
+2021-03-24 11:00:53.750 +00:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/product application/json 203
+2021-03-24 11:00:53.751 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.Update (OSSApi)'
+2021-03-24 11:00:53.755 +00:00 [INF] Route matched with {action = "Update", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(OSS.Core.Models.Product) on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 11:00:53.771 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 11:00:53.774 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.Update (OSSApi) in 13.5901ms
+2021-03-24 11:00:53.779 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.Update (OSSApi)'
+2021-03-24 11:00:53.784 +00:00 [INF] HTTP PUT /api/product responded 200 in 32.8517 ms
+2021-03-24 11:00:53.788 +00:00 [INF] Request finished in 38.6165ms 200 
+2021-03-24 11:01:07.248 +00:00 [INF] Request starting HTTP/1.1 PUT https://localhost:5001/api/product application/json 203
+2021-03-24 11:01:07.250 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.Update (OSSApi)'
+2021-03-24 11:01:07.253 +00:00 [INF] Route matched with {action = "Update", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(OSS.Core.Models.Product) on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 11:01:07.262 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 11:01:07.264 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.Update (OSSApi) in 7.408ms
+2021-03-24 11:01:07.268 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.Update (OSSApi)'
+2021-03-24 11:01:07.269 +00:00 [INF] HTTP PUT /api/product responded 200 in 19.4513 ms
+2021-03-24 11:01:07.271 +00:00 [INF] Request finished in 23.5376ms 200 
+2021-03-24 11:01:21.976 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product  
+2021-03-24 11:01:21.979 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 11:01:21.982 +00:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 11:01:21.993 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Product, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 11:01:22.002 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.GetAll (OSSApi) in 14.8531ms
+2021-03-24 11:01:22.007 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 11:01:22.010 +00:00 [INF] HTTP GET /api/product responded 200 in 30.8620 ms
+2021-03-24 11:01:22.013 +00:00 [INF] Request finished in 36.2302ms 200 application/json; charset=utf-8
+2021-03-24 11:01:40.617 +00:00 [INF] Request starting HTTP/1.1 DELETE https://localhost:5001/api/product/12  
+2021-03-24 11:01:40.619 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.Delete (OSSApi)'
+2021-03-24 11:01:40.628 +00:00 [INF] Route matched with {action = "Delete", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 11:01:40.650 +00:00 [INF] Executing HttpStatusCodeResult, setting HTTP status code 200
+2021-03-24 11:01:40.651 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.Delete (OSSApi) in 18.2374ms
+2021-03-24 11:01:40.653 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.Delete (OSSApi)'
+2021-03-24 11:01:40.654 +00:00 [INF] HTTP DELETE /api/product/12 responded 200 in 35.7399 ms
+2021-03-24 11:01:40.657 +00:00 [INF] Request finished in 39.7443ms 200 
+2021-03-24 11:01:48.264 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/product  
+2021-03-24 11:01:48.266 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 11:01:48.268 +00:00 [INF] Route matched with {action = "GetAll", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.ProductController (OSSApi).
+2021-03-24 11:01:48.274 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Product, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 11:01:48.281 +00:00 [INF] Executed action OSSApi.Controllers.ProductController.GetAll (OSSApi) in 10.1892ms
+2021-03-24 11:01:48.283 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.ProductController.GetAll (OSSApi)'
+2021-03-24 11:01:48.286 +00:00 [INF] HTTP GET /api/product responded 200 in 20.5935 ms
+2021-03-24 11:01:48.291 +00:00 [INF] Request finished in 26.5763ms 200 application/json; charset=utf-8
