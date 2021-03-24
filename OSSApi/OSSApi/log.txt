@@ -1113,3 +1113,12 @@ ClientConnectionId:382491fb-34e8-4b8f-849e-957a3a6c7897
 Error Number:208,State:1,Class:16
 2021-03-24 11:21:07.104 +00:00 [INF] Request finished in 720.6146ms 500 text/plain
 >>>>>>> Stashed changes
+2021-03-24 12:17:44.397 +00:00 [INF] Starting the application
+2021-03-24 12:17:46.997 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 12:17:47.004 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 12:17:47.008 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 12:17:47.009 +00:00 [INF] Hosting environment: Development
+2021-03-24 12:17:47.012 +00:00 [INF] Content root path: C:\Users\a.conde.lwks\source\repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 12:17:48.072 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 12:17:48.176 +00:00 [INF] HTTP GET / responded 404 in 81.5681 ms
+2021-03-24 12:17:48.193 +00:00 [INF] Request finished in 134.7454ms 404 
