@@ -6,7 +6,7 @@
 OSSApi/OSSApi/appsettings.json
 
 # serilog log
-OSSApi/log.txt
+OSSApi/OSSApi/log.txt
 
 # User-specific files
 *.suo
