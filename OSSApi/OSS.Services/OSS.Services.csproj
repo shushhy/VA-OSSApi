@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OSS.Core\OSS.Core.csproj" />
     <ProjectReference Include="..\OSS.Data\OSS.Data.csproj" />
   </ItemGroup>
 

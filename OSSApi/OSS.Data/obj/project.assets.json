@@ -5807,19 +5807,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\": {}
+    "C:\\Users\\a.conde.lwks\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj",
+      "projectUniqueName": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj",
       "projectName": "OSS.Data",
-      "projectPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj",
-      "packagesPath": "C:\\Users\\f.fernandes.lwks\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\obj\\",
+      "projectPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj",
+      "packagesPath": "C:\\Users\\a.conde.lwks\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\f.fernandes.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\a.conde.lwks\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5833,8 +5833,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {
-              "projectPath": "C:\\Users\\f.fernandes.lwks\\Source\\Repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj"
+            "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj": {
+              "projectPath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Core\\OSS.Core.csproj"
             }
           }
         }
