@@ -18,7 +18,6 @@ namespace OSS.Services.Services {
 
         // Select all customer
         public async Task<IReadOnlyList<Customer>> GetAll() {
-
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var customers = await connection.GetAllAsync<Customer>();
                 return customers.ToList();

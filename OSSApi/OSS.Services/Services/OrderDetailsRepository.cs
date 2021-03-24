@@ -20,8 +20,11 @@ namespace OSS.Services.Services {
 
 
         // Select all order details
-        public Task<IReadOnlyList<OrderDetails>> GetAll() {
-            throw new NotImplementedException();
+        public async Task<IReadOnlyList<OrderDetails>> GetAll() {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var orderDetails = await connection.GetAllAsync<OrderDetails>();
+                return orderDetails.AsList();
+            };
         }
 
         // Select order details by id
@@ -31,33 +34,21 @@ namespace OSS.Services.Services {
 
         // Insert new order details
         public async Task Insert(OrderDetails orderDetails) {
-            var query = @"INSERT INTO [dbo].[OrderDetails](
-                            [ProductId]
-                           ,[OrderId]
-                           ,[OrderDetailsQuantity]
-                           ,[OrderDetailsPrice])
-                          VALUES
-                            (@ProductId
-                           ,@OrderId
-                           ,@OrderDetailsQuantity
-                           ,@OrderDetailsPrice);";
-
-            //var query2 = @"SELECT ProductPrice FROM Product p inner join OrderDetails o on p.ProductId = o.ProductId;";
-
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
-                //var affectedRows = await connection.ExecuteAsync(query, orderDetails);
-                var affectedRows = await connection.ExecuteAsync(query, new {
-                    @ProductId = orderDetails.ProductId,
-                    @OrderId = orderDetails.OrderId,
-                    @OrderDetailsQuantity = orderDetails.OrderDetailsQuantity,
-                    @OrderDetailsPrice = orderDetails.OrderDetailsPrice
-                });
-
+                var product = await connection.GetAsync<Product>(new Product { ProductId = orderDetails.ProductId });
+                var newTotal = product.ProductPrice * orderDetails.OrderDetailsQuantity;
+                var newOrderDetails = new OrderDetails {
+                    ProductId = orderDetails.ProductId,
+                    OrderId = orderDetails.OrderId,
+                    OrderDetailsQuantity = orderDetails.OrderDetailsQuantity,
+                    OrderDetailsPrice = newTotal
+                };
+                await connection.InsertAsync<OrderDetails>(newOrderDetails);
             }
         }
 
         // Edit order details
-        public Task Update(OrderDetails orderDetails) {
+        public Task Update(OrderDetails entity) {
             throw new NotImplementedException();
         }
 

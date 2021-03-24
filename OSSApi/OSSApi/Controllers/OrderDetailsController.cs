@@ -16,6 +16,12 @@ namespace OSSApi.Controllers {
             this.unitOfWork = unitOfWork;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAll() {
+            var data = await unitOfWork.OrderDetails.GetAll();
+            return Ok(data);
+        }
+
         // Post OrderDetails
         [HttpPost]
         public async Task<IActionResult> Insert(OrderDetails orderDetails) {

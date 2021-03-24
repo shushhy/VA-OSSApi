@@ -1,1 +1,4 @@
 ﻿# ignore dirs
+/OSSApi/.vs/
+/OSSApi/OSSApi/bin/
+/OSSApi/OSSApi/obj/
