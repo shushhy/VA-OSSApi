@@ -5,6 +5,9 @@
 # ConnectionString
 OSSApi/OSSApi/appsettings.json
 
+# serilog log
+OSSApi/log.txt
+
 # User-specific files
 *.suo
 *.user
