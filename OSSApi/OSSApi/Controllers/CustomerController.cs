@@ -50,8 +50,8 @@ namespace OSSApi.Controllers {
         // Customer Delete
         [HttpDelete]
         public async Task<IActionResult> Delete(int id) {
-            var data = await unitOfWork.Customers.Delete(id);
-            return Ok(data);
+            await unitOfWork.Customers.Delete(id);
+            return Ok();
         }
     }
 }

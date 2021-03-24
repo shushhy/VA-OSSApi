@@ -20,8 +20,7 @@ namespace OSS.Services.Services {
 
         // Select all orders
         public async Task<IReadOnlyList<Orders>> GetAll() {
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var orderAmount = new Dictionary<int, Orders>();
 
                 var query = await connection.QueryAsync<Orders, OrderDetails, Orders>(@"SELECT * FROM Orders o inner join OrderDetails d on o.OrderId = d.OrderId",
@@ -29,17 +28,16 @@ namespace OSS.Services.Services {
                         Orders ordersid;
 
                         // Verificar se existe mais do que um produto associado a uma compra e juntá-los
-                        if(!orderAmount.TryGetValue(ordersFunc.OrderId, out ordersid))
-                        {
+                        if (!orderAmount.TryGetValue(ordersFunc.OrderId, out ordersid)) {
                             ordersid = ordersFunc;
                             ordersid.OrderDetails = new List<OrderDetails>();
                             orderAmount.Add(ordersid.OrderId, ordersid);
                         }
 
-                        ordersid.OrderDetails.Add(orderDetailsFunc);               
+                        ordersid.OrderDetails.Add(orderDetailsFunc);
 
                         return ordersid;
-                },splitOn: "OrderDetailsId");
+                    }, splitOn: "OrderDetailsId");
 
                 return query.Distinct().ToList();
             };
@@ -63,15 +61,12 @@ namespace OSS.Services.Services {
         }
 
         // Insert new order
-        public async Task<int> Insert(Orders entity)
-        {
+        public async Task Insert(Orders entity) {
             var query = @"INSERT INTO [dbo].[Orders](CustomerId, OrderDescription, OrderStatus, OrderDate)
                           VALUES (@CustomerId, @OrderDescription, @OrderStatus, @OrderDate);";
 
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
-                var newOrder = new Orders
-                {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var newOrder = new Orders {
                     CustomerId = entity.CustomerId,
                     OrderDescription = entity.OrderDescription,
                     OrderStatus = entity.OrderStatus,
@@ -79,18 +74,16 @@ namespace OSS.Services.Services {
                 };
 
                 var affectedRows = await connection.ExecuteAsync(query, newOrder);
-                return affectedRows;
             }
         }
 
         // Edit order
-        public Task<int> Update(Orders entity) {
+        public Task Update(Orders entity) {
             throw new NotImplementedException();
         }
 
         // Delete order
-        public Task<int> Delete(int id)
-        {
+        public Task Delete(int id) {
             throw new NotImplementedException();
         }
     }

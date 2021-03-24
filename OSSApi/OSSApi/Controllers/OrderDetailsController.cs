@@ -12,17 +12,15 @@ namespace OSSApi.Controllers {
     [ApiController]
     public class OrderDetailsController : ControllerBase {
         private readonly IUnitOfWork unitOfWork;
-        public OrderDetailsController(IUnitOfWork unitOfWork)
-        {
+        public OrderDetailsController(IUnitOfWork unitOfWork) {
             this.unitOfWork = unitOfWork;
         }
 
         // Post OrderDetails
         [HttpPost]
-        public async Task<IActionResult> Insert(OrderDetails entity)
-        {
-            var data = await unitOfWork.OrderDetails.Insert(entity);
-            return Ok(data);
+        public async Task<IActionResult> Insert(OrderDetails entity) {
+            await unitOfWork.OrderDetails.Insert(entity);
+            return Ok();
         }
     }
 }

@@ -1,0 +1,84 @@
+2021-03-24 04:37:22.716 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 04:37:22.889 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 04:37:22.889 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 04:37:22.890 +00:00 [INF] Hosting environment: Development
+2021-03-24 04:37:22.890 +00:00 [INF] Content root path: C:\Users\a.conde.lwks\source\repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 04:37:24.609 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 04:37:24.746 +00:00 [INF] HTTP GET / responded 404 in 100.2586 ms
+2021-03-24 04:37:24.776 +00:00 [INF] Request finished in 191.5417ms 404 
+2021-03-24 04:37:41.087 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 04:37:41.105 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:37:41.162 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 04:37:41.836 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 04:37:41.886 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 714.5242ms
+2021-03-24 04:37:41.888 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:37:41.889 +00:00 [INF] HTTP GET /api/customer responded 200 in 800.5894 ms
+2021-03-24 04:37:41.892 +00:00 [INF] Request finished in 805.2652ms 200 application/json; charset=utf-8
+2021-03-24 04:39:06.269 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 04:39:06.404 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 04:39:06.406 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 04:39:06.408 +00:00 [INF] Hosting environment: Development
+2021-03-24 04:39:06.409 +00:00 [INF] Content root path: C:\Users\a.conde.lwks\source\repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 04:39:07.792 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 04:39:07.842 +00:00 [INF] HTTP GET / responded 404 in 34.6723 ms
+2021-03-24 04:39:07.853 +00:00 [INF] Request finished in 68.8287ms 404 
+2021-03-24 04:39:20.158 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 04:39:20.188 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:39:20.267 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 04:39:20.893 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 04:39:20.992 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 707.2795ms
+2021-03-24 04:39:20.996 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:39:21.001 +00:00 [INF] HTTP GET /api/customer responded 200 in 839.4227 ms
+2021-03-24 04:39:21.010 +00:00 [INF] Request finished in 852.5221ms 200 application/json; charset=utf-8
+2021-03-24 04:41:55.156 +00:00 [INF] Starting the application
+2021-03-24 04:41:56.949 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 04:41:56.957 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 04:41:56.959 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 04:41:56.960 +00:00 [INF] Hosting environment: Development
+2021-03-24 04:41:56.961 +00:00 [INF] Content root path: C:\Users\a.conde.lwks\source\repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 04:41:57.953 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 04:41:58.013 +00:00 [INF] HTTP GET / responded 404 in 48.5275 ms
+2021-03-24 04:41:58.031 +00:00 [INF] Request finished in 83.2184ms 404 
+2021-03-24 04:43:08.554 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 04:43:08.566 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:43:08.609 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 04:43:09.224 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 04:43:09.275 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 653.1345ms
+2021-03-24 04:43:09.281 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:43:09.287 +00:00 [INF] HTTP GET /api/customer responded 200 in 731.0223 ms
+2021-03-24 04:43:09.296 +00:00 [INF] Request finished in 742.8705ms 200 application/json; charset=utf-8
+2021-03-24 04:43:27.254 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 04:43:27.258 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:43:27.260 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 04:43:27.271 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 04:43:27.274 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 11.9258ms
+2021-03-24 04:43:27.276 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:43:27.278 +00:00 [INF] HTTP GET /api/customer responded 200 in 21.1604 ms
+2021-03-24 04:43:27.280 +00:00 [INF] Request finished in 25.6913ms 200 application/json; charset=utf-8
+2021-03-24 04:43:28.891 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 04:43:28.894 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:43:28.896 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 04:43:28.912 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 04:43:28.916 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 15.1265ms
+2021-03-24 04:43:28.920 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 04:43:28.925 +00:00 [INF] HTTP GET /api/customer responded 200 in 31.4659 ms
+2021-03-24 04:43:28.932 +00:00 [INF] Request finished in 40.1968ms 200 application/json; charset=utf-8
+2021-03-24 04:43:43.267 +00:00 [INF] Application is shutting down...
+2021-03-24 05:08:59.312 +00:00 [INF] Starting the application
+2021-03-24 05:09:01.972 +00:00 [INF] Now listening on: https://localhost:5001
+2021-03-24 05:09:01.982 +00:00 [INF] Now listening on: http://localhost:5000
+2021-03-24 05:09:01.984 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-03-24 05:09:01.985 +00:00 [INF] Hosting environment: Development
+2021-03-24 05:09:01.986 +00:00 [INF] Content root path: C:\Users\a.conde.lwks\source\repos\shushhy\VA-OSSApi\OSSApi\OSSApi
+2021-03-24 05:09:02.867 +00:00 [INF] Request starting HTTP/2 GET https://localhost:5001/  
+2021-03-24 05:09:02.951 +00:00 [INF] HTTP GET / responded 404 in 66.7790 ms
+2021-03-24 05:09:02.972 +00:00 [INF] Request finished in 113.6466ms 404 
+2021-03-24 05:09:16.420 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/customer  
+2021-03-24 05:09:16.435 +00:00 [INF] Executing endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 05:09:16.492 +00:00 [INF] Route matched with {action = "GetAll", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller OSSApi.Controllers.CustomerController (OSSApi).
+2021-03-24 05:09:17.011 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[OSS.Core.Models.Customer, OSS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-03-24 05:09:17.049 +00:00 [INF] Executed action OSSApi.Controllers.CustomerController.GetAll (OSSApi) in 548.6705ms
+2021-03-24 05:09:17.052 +00:00 [INF] Executed endpoint 'OSSApi.Controllers.CustomerController.GetAll (OSSApi)'
+2021-03-24 05:09:17.056 +00:00 [INF] HTTP GET /api/customer responded 200 in 633.6890 ms
+2021-03-24 05:09:17.064 +00:00 [INF] Request finished in 643.6448ms 200 application/json; charset=utf-8
+2021-03-24 05:09:21.747 +00:00 [INF] Application is shutting down...

@@ -29,8 +29,7 @@ namespace OSS.Services.Services {
         }
 
         // Insert new order details
-        public async Task<int> Insert(OrderDetails entity)
-        {
+        public async Task Insert(OrderDetails entity) {
             var query = @"INSERT INTO [dbo].[OrderDetails](
                             [ProductId]
                            ,[OrderId]
@@ -44,29 +43,25 @@ namespace OSS.Services.Services {
 
             var query2 = @"SELECT ProductPrice FROM Product p inner join OrderDetails o on p.ProductId = o.ProductId;";
 
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 //var affectedRows = await connection.ExecuteAsync(query, entity);
-                var affectedRows = await connection.ExecuteAsync(query, new
-                {
+                var affectedRows = await connection.ExecuteAsync(query, new {
                     @ProductId = entity.ProductId,
                     @OrderId = entity.OrderId,
                     @OrderDetailsQuantity = entity.OrderDetailsQuantity,
                     @OrderDetailsPrice = entity.OrderDetailsPrice
                 });
 
-                return affectedRows;
             }
         }
 
         // Edit order details
-        public Task<int> Update(OrderDetails entity) {
+        public Task Update(OrderDetails entity) {
             throw new NotImplementedException();
         }
 
         // Delete order details by id
-        public Task<int> Delete(int id)
-        {
+        public Task Delete(int id) {
             throw new NotImplementedException();
         }
     }

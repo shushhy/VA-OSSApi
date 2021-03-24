@@ -81,12 +81,11 @@ namespace OSS.Services.Services {
         }
 
         // Delete product by id
-        public async Task<int> Delete(int id) {
+        public async Task Delete(int id) {
             var query = @"DELETE FROM [dbo].[Product] WHERE ProductId=@ProductId;";
 
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var affectedRows = await connection.ExecuteAsync(query, new { ProductId = id });
-                return affectedRows;
             }
         }
 

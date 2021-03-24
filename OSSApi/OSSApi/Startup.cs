@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OSS.Services.Services;
+using Serilog;
 
 namespace OSSApi {
     public class Startup {
@@ -26,7 +27,7 @@ namespace OSSApi {
             }
 
             app.UseHttpsRedirection();
-
+            app.UseSerilogRequestLogging();
             app.UseRouting();
 
             app.UseAuthorization();

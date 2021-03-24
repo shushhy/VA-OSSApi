@@ -12,15 +12,13 @@ namespace OSSApi.Controllers {
     [ApiController]
     public class OrdersController : ControllerBase {
         private readonly IUnitOfWork unitOfWork;
-        public OrdersController(IUnitOfWork unitOfWork)
-        {
+        public OrdersController(IUnitOfWork unitOfWork) {
             this.unitOfWork = unitOfWork;
         }
 
         // GetAll Order
         [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
+        public async Task<IActionResult> GetAll() {
             var data = await unitOfWork.Orders.GetAll();
             return Ok(data);
         }
@@ -39,10 +37,9 @@ namespace OSSApi.Controllers {
 
         // Post Order
         [HttpPost]
-        public async Task<IActionResult> Insert(Orders entity)
-        {
-            var data = await unitOfWork.Orders.Insert(entity);
-            return Ok(data);
+        public async Task<IActionResult> Insert(Orders entity) {
+            await unitOfWork.Orders.Insert(entity);
+            return Ok();
         }
 
     }

@@ -7,6 +7,6 @@ namespace OSS.Data.Repository {
         Task<T> GetById(int id);
         Task Insert(T entity);
         Task Update(T entity);
-        Task<int> Delete(int id);
+        Task Delete(int id);
     }
 }
