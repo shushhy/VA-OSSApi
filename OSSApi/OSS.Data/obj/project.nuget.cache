@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "kZKlD+4L1kNi0i2uV3MRqycjRXBlz8Gu3Zkz8kIbhcqD8f7pdtcCQiXuYPkCg1Vi+w81236o7pUWBdiho0/jtA==",
+  "dgSpecHash": "+NpZqENB4nrZxmvT+zvSW4JtK01fp03HTaW7b2cS/vFFlmwD1tq2DWOD0jlnd604B6Z/bHoFzfRU1g/IrNhG3Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\OSS.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
+    "C:\\Users\\a.conde.lwks\\.nuget\\packages\\dapper.contrib\\2.0.78\\dapper.contrib.2.0.78.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -70,7 +71,7 @@
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
@@ -106,5 +107,12 @@
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\a.conde.lwks\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\a.conde.lwks\\source\\repos\\shushhy\\VA-OSSApi\\OSSApi\\OSS.Data\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

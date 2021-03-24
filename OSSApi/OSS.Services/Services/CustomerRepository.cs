@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using OSS.Core.Models;
 using OSS.Data.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
+using System.Linq;
+using Dapper.Contrib.Extensions;
 
 
 namespace OSS.Services.Services {
@@ -17,88 +18,61 @@ namespace OSS.Services.Services {
             this.configuration = configuration;
         }
 
-
-        // Select all customers
         public async Task<IReadOnlyList<Customer>> GetAll() {
-            var query = @"SELECT *
-                            FROM [dbo].[Customer]";
-            var dynamicParameters = new DynamicParameters();
 
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
-                var customers = await connection.QueryAsync<Customer>(query);
-                return (IReadOnlyList<Customer>)customers;
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var customers = await connection.GetAllAsync<Customer>();
+                return customers.ToList();
             };
         }
 
         // Select customer by id
         public async Task<Customer> GetById(int id) {
-            var query = @"SELECT *
-                            FROM [dbo].[Customer]";
-            var dynamicParameters = new DynamicParameters();
-            if (id != 0) {
-                query += " WHERE CustomerId = @CustomerId";
-                dynamicParameters.Add("CustomerId", id);
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                int CustomerId = id;
+                var customer = await connection.GetAsync<Customer>(CustomerId);
+                return customer;
             }
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
-                var customers = await connection.QueryFirstOrDefaultAsync<Customer>(query, dynamicParameters);
-                return customers;
-            };
         }
 
         // Insert new customer
-        public async Task<int> Insert(Customer entity)
-        {
-            var query = @"INSERT INTO [dbo].[Customer](
-                            FirstName
-                           ,LastName
-                           ,Email
-                           ,Password
-                           ,Gender
-                           ,Country
-                           ,PhoneNumber)
-                          VALUES
-                            (@FirstName
-                           ,@LastName
-                           ,@Email
-                           ,@Password
-                           ,@Gender
-                           ,@Country
-                           ,@PhoneNumber);";
-
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
-                var affectedRows = await connection.ExecuteAsync(query, entity);
-                return affectedRows;
+        public async Task Insert(Customer customer) {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var newCustomer = new Customer {
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Email = customer.Email,
+                    Password = customer.Password,
+                    Gender = customer.Gender,
+                    Country = customer.Country,
+                    PhoneNumber = customer.PhoneNumber
+                };
+                await connection.InsertAsync<Customer>(newCustomer);
             }
         }
 
         // Edit customer
-        public async Task<int> Update(Customer entity) {
-            var query = @"UPDATE [dbo].[Customer] SET
-                            FirstName = @FirstName
-                           ,LastName = @LastName
-                           ,Email = @Email
-                           ,Password = @Password
-                           ,Gender = @Gender
-                           ,Country = @Country
-                           ,PhoneNumber = @PhoneNumber
-                          WHERE CustomerId = @CustomerId;";
-
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
-                var affectedRows = await connection.ExecuteAsync(query, entity);
-                return affectedRows;
+        public async Task Update(Customer customer) {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var updateCustomer = new Customer {
+                    CustomerId = customer.CustomerId,
+                    FirstName = customer.FirstName,
+                    LastName = customer.LastName,
+                    Email = customer.Email,
+                    Password = customer.Password,
+                    Gender = customer.Gender,
+                    Country = customer.Country,
+                    PhoneNumber = customer.PhoneNumber
+                };
+                await connection.InsertAsync<Customer>(updateCustomer);
             }
         }
 
         // Delete customer by id
-        public async Task<int> Delete(int id)
-        {
+        public async Task<int> Delete(int id) {
             var query = @"DELETE FROM [dbo].[Customer] WHERE CustomerId=@CustomerId;";
 
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var affectedRows = await connection.ExecuteAsync(query, new { CustomerId = id });
                 return affectedRows;
             }

@@ -1,8 +1,11 @@
 ﻿using System;
+using Dapper.Contrib.Extensions;
 
 namespace OSS.Core.Models {
+    [Table("Customer")]
     public class Customer {
 
+        [Key]
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

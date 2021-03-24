@@ -36,22 +36,20 @@ namespace OSSApi.Controllers {
         // Customer Post
         [HttpPost]
         public async Task<IActionResult> Insert(Customer entity) {
-            var data = await unitOfWork.Customers.Insert(entity);
-            return Ok(data);
+            await unitOfWork.Customers.Insert(entity);
+            return Ok();
         }
 
         // Customer Put
         [HttpPut]
-        public async Task<IActionResult> Update(Customer entity)
-        {
-            var data = await unitOfWork.Customers.Update(entity);
-            return Ok(data);
+        public async Task<IActionResult> Update(Customer entity) {
+            await unitOfWork.Customers.Update(entity);
+            return Ok();
         }
 
         // Customer Delete
         [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
-        {
+        public async Task<IActionResult> Delete(int id) {
             var data = await unitOfWork.Customers.Delete(id);
             return Ok(data);
         }
