@@ -74,14 +74,26 @@ namespace CustomerApiMoq {
         [InlineData(200)]
         [InlineData(-1)]
         public async Task GetByIdAsyncNullWhenNoCustomerFA(int id) {
+            var customerMock = new Customer {
+                CustomerId = id,
+                FirstName = "Teste Name",
+                LastName = "Test Surname",
+                Email = "teste@teste.gmail.com",
+                Password = "testpassword",
+                Gender = 'M',
+                Country = "Iceland",
+                PhoneNumber = "987654321"
+            };
+
+            mock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(() => null).Verifiable();
             var customer = await customerService.GetByIdAsync(id);
-            mock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(customer);
-            customer.Should().BeNull();
+            mock.Verify();
+
         }
 
         [Fact]
         public async Task InsertAsync() {
-            mock.Verify(x => x.InsertAsync(new Customer {
+            var customer = new Customer {
                 FirstName = "Test Subject",
                 LastName = "Subject Surname",
                 Email = "oooooo@hotmail.com",
@@ -89,7 +101,10 @@ namespace CustomerApiMoq {
                 Gender = 'M',
                 Country = "Iceland",
                 PhoneNumber = "987654321"
-            }), Times.Once());
+            };
+            mock.Setup(x => x.InsertAsync(customer)).Verifiable();
+            await customerService.InsertAsync(customer);
+            mock.Verify();
         }
     }
 }

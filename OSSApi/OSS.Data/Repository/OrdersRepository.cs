@@ -63,9 +63,6 @@ namespace OSS.Data.Repository {
 
         // Insert new order
         public async Task InsertAsync(Orders orders) {
-            var query = @"INSERT INTO [dbo].[Orders](CustomerId, OrderDescription, OrderStatus, OrderDate)
-                          VALUES (@CustomerId, @OrderDescription, @OrderStatus, @OrderDate);";
-
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var newOrder = new Orders {
                     CustomerId = orders.CustomerId,
@@ -73,8 +70,7 @@ namespace OSS.Data.Repository {
                     OrderStatus = orders.OrderStatus,
                     OrderDate = DateTime.UtcNow
                 };
-
-                var affectedRows = await connection.ExecuteAsync(query, newOrder);
+                await connection.InsertAsync<Orders>(newOrder);
             }
         }
 
