@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using OSS.Data.Repository;
-using OSS.Core.Models;
 
 namespace OSS.Services.Services {
     public static class ServiceRegistration {

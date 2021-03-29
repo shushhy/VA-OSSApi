@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Dapper.Contrib.Extensions;
+﻿using Dapper.Contrib.Extensions;
 
 namespace OSS.Core.Models {
     [Table("OrderDetails")]

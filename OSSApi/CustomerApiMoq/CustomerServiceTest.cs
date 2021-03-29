@@ -74,21 +74,9 @@ namespace CustomerApiMoq {
         [InlineData(200)]
         [InlineData(-1)]
         public async Task GetByIdAsyncNullWhenNoCustomerFA(int id) {
-            var customerMock = new Customer {
-                CustomerId = id,
-                FirstName = "Teste Name",
-                LastName = "Test Surname",
-                Email = "teste@teste.gmail.com",
-                Password = "testpassword",
-                Gender = 'M',
-                Country = "Iceland",
-                PhoneNumber = "987654321"
-            };
-
             mock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(() => null).Verifiable();
             var customer = await customerService.GetByIdAsync(id);
             mock.Verify();
-
         }
 
         [Fact]

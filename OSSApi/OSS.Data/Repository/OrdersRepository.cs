@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using OSS.Core.Models;
-using OSS.Data.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
@@ -45,20 +43,19 @@ namespace OSS.Data.Repository {
         }
 
         // Select order by id
-        public Task<Orders> GetByIdAsync(int id) {
-            throw new NotImplementedException();
-            /*var query = @"SELECT * FROM Orders o inner join OrderDetails d on o.OrderId = d.OrderId ";
+        // TODO FIX 
+        public async Task<Orders> GetByIdAsync(int id) {
+            //throw new NotImplementedException();
+            var query = @"SELECT * FROM Orders o inner join OrderDetails d on o.OrderId = d.OrderId ";
             var dynamicParameters = new DynamicParameters();
-            if (id != 0)
-            {
+            if (id != 0) {
                 query += " WHERE OrderId = @OrderId";
                 dynamicParameters.Add("OrderId", id);
             }
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var orders = await connection.QueryFirstOrDefaultAsync<Orders>(query, dynamicParameters);
                 return orders;
-            };*/
+            };
         }
 
         // Insert new order
@@ -75,13 +72,24 @@ namespace OSS.Data.Repository {
         }
 
         // Edit order
-        public Task UpdateAsync(Orders orders) {
-            throw new NotImplementedException();
+        public async Task UpdateAsync(Orders orders) {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var updateOrder = new Orders {
+                    OrderId = orders.OrderId,
+                    CustomerId = orders.CustomerId,
+                    OrderDescription = orders.OrderDescription,
+                    OrderStatus = orders.OrderStatus,
+                    OrderDate = DateTime.UtcNow
+                };
+                await connection.InsertAsync<Orders>(updateOrder);
+            }
         }
 
         // Delete order
-        public Task DeleteAsync(int id) {
-            throw new NotImplementedException();
+        public async Task DeleteAsync(int id) {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                await connection.DeleteAsync(new Orders { OrderId = id });
+            }
         }
     }
 }

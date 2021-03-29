@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using OSS.Core.Models;
-using OSS.Data.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
@@ -28,8 +26,11 @@ namespace OSS.Data.Repository {
         }
 
         // Select order details by id
-        public Task<OrderDetails> GetByIdAsync(int id) {
-            throw new NotImplementedException();
+        public async Task<OrderDetails> GetByIdAsync(int id) {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var orderDetails = await connection.GetAsync<OrderDetails>(new OrderDetails { OrderDetailsId = id });
+                return orderDetails;
+            }
         }
 
         // Insert new order details
@@ -48,8 +49,19 @@ namespace OSS.Data.Repository {
         }
 
         // Edit order details
-        public Task UpdateAsync(OrderDetails entity) {
-            throw new NotImplementedException();
+        public async Task UpdateAsync(OrderDetails entity) {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                string query = "select ProductPrice from Products;";
+                var product = await connection.QueryFirstOrDefaultAsync<Product>(query);
+                var updateOrderDetails = new OrderDetails {
+                    OrderDetailsId = entity.OrderDetailsId,
+                    ProductId = entity.ProductId,
+                    OrderId = entity.OrderId,
+                    OrderDetailsQuantity = entity.OrderDetailsQuantity,
+                    OrderDetailsPrice = entity.OrderDetailsQuantity * product.ProductPrice
+                };
+                await connection.UpdateAsync<OrderDetails>(updateOrderDetails);
+            }
         }
 
         // Delete order details by id

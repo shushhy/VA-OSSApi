@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using OSS.Core.Models;
+﻿using OSS.Core.Models;
 
 namespace OSS.Data.Repository {
-    
-    public interface IOrderDetailsRepository : IGenericRepository<OrderDetails>
-    {
+
+    public interface IOrderDetailsRepository : IGenericRepository<OrderDetails> {
 
     }
 }

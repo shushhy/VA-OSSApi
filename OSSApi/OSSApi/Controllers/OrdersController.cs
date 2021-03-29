@@ -36,5 +36,17 @@ namespace OSSApi.Controllers {
             return Ok();
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateAsync(Orders orders) {
+            await unitOfWork.Orders.UpdateAsync(orders);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id) {
+            await unitOfWork.Orders.DeleteAsync(id);
+            return Ok();
+        }
+
     }
 }
