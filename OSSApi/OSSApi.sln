@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSS.Data", "OSS.Data\OSS.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSS.Services", "OSS.Services\OSS.Services.csproj", "{B33887CD-CB58-4528-9D0E-02B096D6D4DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerApiMoq", "CustomerApiMoq\CustomerApiMoq.csproj", "{60AF2161-2939-44FF-AC74-67A1542098F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B33887CD-CB58-4528-9D0E-02B096D6D4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B33887CD-CB58-4528-9D0E-02B096D6D4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B33887CD-CB58-4528-9D0E-02B096D6D4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60AF2161-2939-44FF-AC74-67A1542098F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60AF2161-2939-44FF-AC74-67A1542098F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60AF2161-2939-44FF-AC74-67A1542098F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60AF2161-2939-44FF-AC74-67A1542098F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

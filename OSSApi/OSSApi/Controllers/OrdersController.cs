@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using OSS.Data.Repository;
 using OSS.Core.Models;
+using OSS.Services.Services;
 
 namespace OSSApi.Controllers {
     [Route("api/[controller]")]
@@ -18,18 +14,16 @@ namespace OSSApi.Controllers {
 
         // GetAll Order
         [HttpGet]
-        public async Task<IActionResult> GetAll() {
-            var data = await unitOfWork.Orders.GetAll();
+        public async Task<IActionResult> GetAllAsync() {
+            var data = await unitOfWork.Orders.GetAllAsync();
             return Ok(data);
         }
 
         // GetById Order
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var data = await unitOfWork.Orders.GetById(id);
-            if (data == null)
-            {
+        public async Task<IActionResult> GetByIdAsync(int id) {
+            var data = await unitOfWork.Orders.GetByIdAsync(id);
+            if (data == null) {
                 return BadRequest();
             }
             return Ok(data);
@@ -37,8 +31,8 @@ namespace OSSApi.Controllers {
 
         // Post Order
         [HttpPost]
-        public async Task<IActionResult> Insert(Orders orders) {
-            await unitOfWork.Orders.Insert(orders);
+        public async Task<IActionResult> InsertAsync(Orders orders) {
+            await unitOfWork.Orders.InsertAsync(orders);
             return Ok();
         }
 

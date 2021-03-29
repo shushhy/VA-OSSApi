@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using OSS.Data.Repository;
 using OSS.Core.Models;
+using OSS.Services.Services;
 
 namespace OSSApi.Controllers {
     [Route("api/[controller]")]
@@ -18,15 +14,15 @@ namespace OSSApi.Controllers {
 
         // GetAll Product
         [HttpGet]
-        public async Task<IActionResult> GetAll() {
-            var data = await unitOfWork.Products.GetAll();
+        public async Task<IActionResult> GetAllAsync() {
+            var data = await unitOfWork.Products.GetAllAsync();
             return Ok(data);
         }
 
         // GetById Product
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id) {
-            var data = await unitOfWork.Products.GetById(id);
+        public async Task<IActionResult> GetByIdAsync(int id) {
+            var data = await unitOfWork.Products.GetByIdAsync(id);
             if (data == null) {
                 return BadRequest();
             }
@@ -35,22 +31,22 @@ namespace OSSApi.Controllers {
 
         // Post Product
         [HttpPost]
-        public async Task<IActionResult> Insert(Product product) {
-            await unitOfWork.Products.Insert(product);
+        public async Task<IActionResult> InsertAsync(Product product) {
+            await unitOfWork.Products.InsertAsync(product);
             return Ok();
         }
 
         // Put Product
         [HttpPut]
-        public async Task<IActionResult> Update(Product product) {
-            await unitOfWork.Products.Update(product);
+        public async Task<IActionResult> UpdateAsync(Product product) {
+            await unitOfWork.Products.UpdateAsync(product);
             return Ok();
         }
 
         // Delete Product
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id) {
-            await unitOfWork.Products.Delete(id);
+        public async Task<IActionResult> DeleteAsync(int id) {
+            await unitOfWork.Products.DeleteAsync(id);
             return Ok();
         }
     }

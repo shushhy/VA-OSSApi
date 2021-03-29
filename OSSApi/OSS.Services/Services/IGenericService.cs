@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace OSS.Data.Repository {
-    public interface IGenericRepository<T> where T : class {
+namespace OSS.Services.Services {
+    public interface IGenericService<T> where T : class {
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
         Task InsertAsync(T entity);

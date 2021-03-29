@@ -10,7 +10,7 @@ using Dapper;
 using Dapper.Contrib.Extensions;
 using System.Linq;
 
-namespace OSS.Services.Services {
+namespace OSS.Data.Repository {
     public class ProductRepository : IProductRepository {
         private readonly IConfiguration configuration;
 
@@ -20,20 +20,16 @@ namespace OSS.Services.Services {
 
 
         // Select all products
-        public async Task<IReadOnlyList<Product>> GetAll()
-        {
-            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
+        public async Task<IReadOnlyList<Product>> GetAllAsync() {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var products = await connection.GetAllAsync<Product>();
                 return products.ToList();
             };
         }
 
         // Select product by id
-        public async Task<Product> GetById(int id)
-        {
-            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
+        public async Task<Product> GetByIdAsync(int id) {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 int ProductId = id;
                 var product = await connection.GetAsync<Product>(ProductId);
                 return product;
@@ -41,12 +37,9 @@ namespace OSS.Services.Services {
         }
 
         // Insert new product
-        public async Task Insert(Product product)
-        {
-            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
-                var newProduct = new Product
-                {
+        public async Task InsertAsync(Product product) {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var newProduct = new Product {
                     ProductName = product.ProductName,
                     ProductPrice = product.ProductPrice,
                     ProductSize = product.ProductSize,
@@ -58,12 +51,9 @@ namespace OSS.Services.Services {
         }
 
         // Edit product
-        public async Task Update(Product product)
-        {
-            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
-                var updateProduct = new Product
-                {
+        public async Task UpdateAsync(Product product) {
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
+                var updateProduct = new Product {
                     ProductName = product.ProductName,
                     ProductPrice = product.ProductPrice,
                     ProductSize = product.ProductSize,
@@ -75,10 +65,8 @@ namespace OSS.Services.Services {
         }
 
         // Delete product by id
-        public async Task Delete(int id)
-        {
-            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
-            {
+        public async Task DeleteAsync(int id) {
+            using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 await connection.DeleteAsync(new Product { ProductId = id });
             }
         }

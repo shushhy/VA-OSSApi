@@ -10,7 +10,7 @@ using Dapper;
 using Dapper.Contrib.Extensions;
 using System.Linq;
 
-namespace OSS.Services.Services {
+namespace OSS.Data.Repository {
     public class OrdersRepository : IOrdersRepository {
         private readonly IConfiguration configuration;
 
@@ -20,7 +20,7 @@ namespace OSS.Services.Services {
 
 
         // Select all orders
-        public async Task<IReadOnlyList<Orders>> GetAll() {
+        public async Task<IReadOnlyList<Orders>> GetAllAsync() {
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var orderAmount = new Dictionary<int, Orders>();
 
@@ -45,7 +45,7 @@ namespace OSS.Services.Services {
         }
 
         // Select order by id
-        public Task<Orders> GetById(int id) {
+        public Task<Orders> GetByIdAsync(int id) {
             throw new NotImplementedException();
             /*var query = @"SELECT * FROM Orders o inner join OrderDetails d on o.OrderId = d.OrderId ";
             var dynamicParameters = new DynamicParameters();
@@ -62,7 +62,7 @@ namespace OSS.Services.Services {
         }
 
         // Insert new order
-        public async Task Insert(Orders orders) {
+        public async Task InsertAsync(Orders orders) {
             var query = @"INSERT INTO [dbo].[Orders](CustomerId, OrderDescription, OrderStatus, OrderDate)
                           VALUES (@CustomerId, @OrderDescription, @OrderStatus, @OrderDate);";
 
@@ -79,12 +79,12 @@ namespace OSS.Services.Services {
         }
 
         // Edit order
-        public Task Update(Orders orders) {
+        public Task UpdateAsync(Orders orders) {
             throw new NotImplementedException();
         }
 
         // Delete order
-        public Task Delete(int id) {
+        public Task DeleteAsync(int id) {
             throw new NotImplementedException();
         }
     }

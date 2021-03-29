@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using OSS.Core.Models;
-using OSS.Data.Repository;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 using Dapper.Contrib.Extensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace OSS.Services.Services {
+namespace OSS.Data.Repository {
     public class CustomerRepository : ICustomerRepository {
         private readonly IConfiguration configuration;
 
@@ -17,7 +15,7 @@ namespace OSS.Services.Services {
         }
 
         // Select all customer
-        public async Task<IReadOnlyList<Customer>> GetAll() {
+        public async Task<IReadOnlyList<Customer>> GetAllAsync() {
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var customers = await connection.GetAllAsync<Customer>();
                 return customers.ToList();
@@ -25,7 +23,7 @@ namespace OSS.Services.Services {
         }
 
         // Select customer by id
-        public async Task<Customer> GetById(int id) {
+        public async Task<Customer> GetByIdAsync(int id) {
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 int CustomerId = id;
                 var customer = await connection.GetAsync<Customer>(CustomerId);
@@ -34,7 +32,7 @@ namespace OSS.Services.Services {
         }
 
         // Insert new customer
-        public async Task Insert(Customer customer) {
+        public async Task InsertAsync(Customer customer) {
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var newCustomer = new Customer {
                     FirstName = customer.FirstName,
@@ -50,7 +48,7 @@ namespace OSS.Services.Services {
         }
 
         // Edit customer
-        public async Task Update(Customer customer) {
+        public async Task UpdateAsync(Customer customer) {
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 var updateCustomer = new Customer {
                     CustomerId = customer.CustomerId,
@@ -67,7 +65,7 @@ namespace OSS.Services.Services {
         }
 
         // Delete customer by id
-        public async Task Delete(int id) {
+        public async Task DeleteAsync(int id) {
             using (SqlConnection connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection"))) {
                 await connection.DeleteAsync(new Customer { CustomerId = id });
             }
