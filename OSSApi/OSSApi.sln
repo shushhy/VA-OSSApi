@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSS.Data", "OSS.Data\OSS.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSS.Services", "OSS.Services\OSS.Services.csproj", "{B33887CD-CB58-4528-9D0E-02B096D6D4DB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerApiMoq", "CustomerApiMoq\CustomerApiMoq.csproj", "{60AF2161-2939-44FF-AC74-67A1542098F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "__OldTests", "CustomerApiMoq\__OldTests.csproj", "{60AF2161-2939-44FF-AC74-67A1542098F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{222F461F-5FE7-427D-958E-A0ED2E426A08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSSApi.Tests", "UnitTesting\OSSApi.Tests.csproj", "{222F461F-5FE7-427D-958E-A0ED2E426A08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
