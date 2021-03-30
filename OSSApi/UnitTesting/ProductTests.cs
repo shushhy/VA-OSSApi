@@ -19,7 +19,7 @@ namespace OSSApi.Tests {
         // -------------------------------------------------------------------------------
 
         // Product_GetById_IfExists
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1)]
         [DataRow(2)]
         [DataRow(3)]
@@ -41,6 +41,35 @@ namespace OSSApi.Tests {
 
             Product product = await productService.GetByIdAsync(id);
             mockProduct.ProductId.Should().Be(product.ProductId);
+        }
+
+        // Product_GetById_NullWhenNoProduct
+        [TestMethod]
+        [DataRow(1)]
+        [DataRow(2)]
+        [DataRow(3)]
+        public async Task Product_GetById_NullWhenNoProduct(int id)
+        {
+            mock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(() => null).Verifiable();
+            var product = await productService.GetByIdAsync(id);
+            mock.Verify();
+        }
+
+        // Product_Insert
+        [TestMethod]
+        public async Task Product_Insert()
+        {
+            var product = new Product
+            {
+                ProductName = "Teste Name",
+                ProductPrice = 10.99m,
+                ProductSize = "XXL",
+                ProductColor = "Black",
+                ProductDescription = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            };
+            mock.Setup(x => x.InsertAsync(product)).Verifiable();
+            await productService.InsertAsync(product);
+            mock.Verify();
         }
     }
 }

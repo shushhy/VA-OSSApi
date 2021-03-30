@@ -19,7 +19,7 @@ namespace OSSApi.Tests {
         // -------------------------------------------------------------------------------
 
         // Customer_GetById_IfExists
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1)]
         [DataRow(2)]
         [DataRow(3)]
@@ -43,6 +43,37 @@ namespace OSSApi.Tests {
 
             Customer customer = await customerService.GetByIdAsync(id);
             mockCustomer.CustomerId.Should().Be(customer.CustomerId);
+        }
+
+        // Customer_GetById_NullWhenNoCustomer
+        [TestMethod]
+        [DataRow(1)]
+        [DataRow(2)]
+        [DataRow(3)]
+        public async Task Customer_GetById_NullWhenNoCustomer(int id)
+        {
+            mock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(() => null).Verifiable();
+            var customer = await customerService.GetByIdAsync(id);
+            mock.Verify();
+        }
+
+        // Customer_Insert
+        [TestMethod]
+        public async Task Customer_Insert()
+        {
+            var customer = new Customer
+            {
+                FirstName = "Name",
+                LastName = "Surname",
+                Email = "teste@gmail.com",
+                Password = "testpassword",
+                Gender = 'M',
+                Country = "Iceland",
+                PhoneNumber = "987654321"
+            };
+            mock.Setup(x => x.InsertAsync(customer)).Verifiable();
+            await customerService.InsertAsync(customer);
+            mock.Verify();
         }
     }
 }

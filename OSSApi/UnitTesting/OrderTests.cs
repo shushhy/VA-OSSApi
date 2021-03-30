@@ -19,12 +19,12 @@ namespace OSSApi.Tests {
         }
         // -------------------------------------------------------------------------------
 
-        // Order_GetById_IfExists
-        [DataTestMethod]
+        // Order_GetById_Exists
+        [TestMethod]
         [DataRow(1)]
         [DataRow(2)]
         [DataRow(3)]
-        public async Task Order_GetById_IfExists(int id)
+        public async Task Order_GetById_Exists(int id)
         {
             var mockOrder = new Orders
             {
@@ -41,6 +41,34 @@ namespace OSSApi.Tests {
 
             Orders order = await orderService.GetByIdAsync(id);
             mockOrder.OrderId.Should().Be(order.OrderId);
+        }
+
+        // Order_GetById_NullWhenNoOrder
+        [TestMethod]
+        [DataRow(1)]
+        [DataRow(2)]
+        [DataRow(3)]
+        public async Task Order_GetById_NullWhenNoOrder(int id)
+        {
+            mock.Setup(x => x.GetByIdAsync(id)).ReturnsAsync(() => null).Verifiable();
+            var order = await orderService.GetByIdAsync(id);
+            mock.Verify();
+        }
+
+        // Order_Insert
+        [TestMethod]
+        public async Task Order_Insert()
+        {
+            var order = new Orders
+            {
+                CustomerId = 1,
+                OrderDescription = "No description.",
+                OrderStatus = 'P',
+                OrderDate = DateTime.UtcNow
+            };
+            mock.Setup(x => x.InsertAsync(order)).Verifiable();
+            await orderService.InsertAsync(order);
+            mock.Verify();
         }
     }
 }
